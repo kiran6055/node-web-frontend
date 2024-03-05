@@ -27,15 +27,11 @@ data "aws_ssm_parameter" "vpc_id" {
 
 
 data "aws_ssm_parameter" "ecs_cluster_id" {
-  name = "/timing/ecs/ecs_cluster_id"
-}
-
-data "aws_ssm_parameter" "private_subent_ids" {
-  name = "/timing/vpc/private_subent_ids"
+  name = "/timing/vpc/ecs_cluster_id"
 }
 
 data "aws_ssm_parameter" "app_target_group_arn" {
-  name = "/timing/vpc/app_target_group_arn"
+  name = "/timing/vpc/target_group_arn"
 }
 
 data "aws_ssm_parameter" "web_target_group_arn" {

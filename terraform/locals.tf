@@ -27,7 +27,7 @@ locals {
     },
     {
         "name" : "API_HOST",
-        "value" : "https://api.awsctr.online" #public URL, if URL is public then traffic from ECS web go out, and comes to AWS again.
+        "value" : "http://app.awsctr.online" #public URL, if URL is public then traffic from ECS web go out, and comes to AWS again.
     }
   ]
 

@@ -17,6 +17,16 @@ resource "aws_ecs_task_definition" "web_node" {
         "containerPort": 3000
       }
     ],
+
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${aws_cloudwatch_log_group.web.name}",
+        "awslogs-region": "ap-south-1",
+        "awslogs-stream-prefix": "ecs"
+   
+      }
+    },
     "environment": ${jsonencode(local.env_vars)}
  
   }
@@ -47,3 +57,8 @@ resource "aws_ecs_service" "web" {
 
 }
 
+
+resource "aws_cloudwatch_log_group" "web" {
+  name = "/timing/ecs/web"
+  tags = local.tags
+}
